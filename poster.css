@@ -52,6 +52,8 @@
 @media(max-width:900px){
   .poster .poster-stage{min-height:100svh}
   .poster .photo-ribbon{flex-grow:1}
+  .poster .about{padding-top:32px}
+  .poster .about .section-caption{margin-bottom:22px}
   .poster .poster-title{z-index:2;will-change:transform}
 }
 body.poster.motion-off .poster-scroll{height:auto}

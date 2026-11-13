@@ -32,7 +32,7 @@
     // used only to ensure the bottom of a tall scene is reachable before pinning.
     const view = document.documentElement.clientHeight;
     sceneTop = Math.min(0, view - height);
-    travel = Math.max(420, view * .95);
+    travel = mobile.matches ? Math.max(180, Math.min(320, view * .38)) : Math.max(420, view * .95);
     scroll.style.setProperty('--scene-height', `${height}px`);
     scroll.style.setProperty('--scene-travel', `${travel}px`);
     scroll.style.setProperty('--scene-top', `${sceneTop}px`);
@@ -62,7 +62,7 @@
     const p = off ? 0 : clamp((-rect.top + sceneTop) / travel);
     const fan = ease(clamp((p - .1) / .65));
     const wipe = ease(clamp((p - .72) / .28));
-    cut.style.height = `${wipe * 75}%`;
+    cut.style.height = `${wipe * (compact ? 32 : 75)}%`;
     if (compact) {
       word1.style.transform = `translateX(${-fan * 3}%) scale(${1 - fan * .12})`;
       word2.style.transform = `translateX(${fan * 3}%) scale(${1 - fan * .12})`;
